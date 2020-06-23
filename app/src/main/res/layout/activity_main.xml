@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/id_bottom_section"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content"
+        android:background="#696969"
+        android:gravity="center">
+
+
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:background="#000000"
+            android:onClick="addItemToList"
+            android:text="Dodaj Gracza"
+            android:textColor="#ffffff" />
+    </LinearLayout>
+<LinearLayout
+    android:layout_above="@id/id_bottom_section"
+    android:layout_width="match_parent"
+    android:background="#8b8989"
+    android:layout_height="match_parent">
+
+    <ListView
+        android:id="@+id/id_listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </ListView>
+
+
+</LinearLayout>
+
+
+</RelativeLayout>
