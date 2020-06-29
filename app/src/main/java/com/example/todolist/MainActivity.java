@@ -75,32 +75,35 @@ public class MainActivity extends AppCompatActivity {
                             @RequiresApi(api = Build.VERSION_CODES.N)
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                int p = Integer.parseInt(String.valueOf(ile.getText()));
-                                if (gracze.get(a) + p > 2147483647) {
-                                    gracze.put(a, 2147483647);
-                                } else {
-                                    gracze.put(a, gracze.get(a) + p);
+                                if (ile.getText().length() != 0) {
+                                    int p = Integer.parseInt(String.valueOf(ile.getText()));
+                                    if (gracze.get(a) + p > 2147483647) {
+                                        gracze.put(a, 2147483647);
+                                    } else {
+                                        gracze.put(a, gracze.get(a) + p);
+                                    }
+                                    gracz.set(which_item, a + ": " + gracze.get(a));
+                                    arrayAdapter.notifyDataSetChanged();
+                                    sortuj();
                                 }
-                                gracz.set(which_item, a + ": " + gracze.get(a));
-                                arrayAdapter.notifyDataSetChanged();
-                                sortuj();
+                                else{}
                             }
-
 
                         })
                         .setNegativeButton("Odejmij", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                int p = Integer.parseInt(String.valueOf(ile.getText()));
-                                if (gracze.get(a) - p < -214748364) {
-                                    gracze.put(a,-214748364);
-                                }
-                                else{
-                                    gracze.put(a, gracze.get(a) - p);
-                                }
-                                gracz.set(which_item, a + ": " + gracze.get(a));
-                                arrayAdapter.notifyDataSetChanged();
-                                sortuj();
+                                if (ile.getText().length() != 0) {
+                                    int p = Integer.parseInt(String.valueOf(ile.getText()));
+                                    if (gracze.get(a) - p < -214748364) {
+                                        gracze.put(a, -214748364);
+                                    } else {
+                                        gracze.put(a, gracze.get(a) - p);
+                                    }
+                                    gracz.set(which_item, a + ": " + gracze.get(a));
+                                    arrayAdapter.notifyDataSetChanged();
+                                    sortuj();
+                                } else {}
                             }
                         })
                         .setNeutralButton("Usuń gracza", new DialogInterface.OnClickListener() {
@@ -172,9 +175,6 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
-
-
-
     }
 
 
